@@ -33,7 +33,7 @@ This terraform module will create:
 * `username` (optional): The postgres username
 * `password` (required): The postgres password
 * `subnet_name` (optional): The name of the subnet to add the RDS instance to
-* `vpc_security_group_ids`: List of VPC security groups to associate
+* `vpc_security_group_ids` (optional): List of VPC security groups to associate
 * `allocated_storage` (optional): Allocate storage
 * `max_allocated_storage` (optional): Max allocate storage
 * `storage_type` (optional): Storage type (e.g. gp2, io1)
@@ -47,6 +47,8 @@ This terraform module will create:
 * `additional_tags` (optional): Tags to set on the RDS instance
 
 ## Outputs
+* `rds_postgres_pg_id`: ID of the RDS postgres parameter group
+* `rds_postgres_id`: ID of the of the RDS instance
 
 # References
 * AWS RDS: https://aws.amazon.com/rds/features/
