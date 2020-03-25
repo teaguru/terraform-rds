@@ -90,7 +90,6 @@ variable "subnet_name" {
 variable "vpc_security_group_ids" {
     description = "List of VPC security groups to associate"
     type = list
-    default = []
 }
 
 variable "copy_tags_to_snapshot" {

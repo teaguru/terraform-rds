@@ -27,13 +27,13 @@ This terraform module will create:
 
 # Variables
 ## Inputs
+* `vpc_security_group_ids` (required): List of VPC security groups to associate
 * `password` (required): The postgres password
 * `username` (optional): The postgres username
 * `postgres_name` (optional): The name of the postgres instance
 * `parameter_group_name` (optional): The name of the rds parameter group
 * `identifier_prefix` (optional): Identifier prefix for the RDS instance
 * `subnet_name` (optional): The name of the subnet to add the RDS instance to
-* `vpc_security_group_ids` (optional): List of VPC security groups to associate
 * `allocated_storage` (optional): Allocate storage
 * `max_allocated_storage` (optional): Max allocate storage
 * `storage_type` (optional): Storage type (e.g. gp2, io1)
