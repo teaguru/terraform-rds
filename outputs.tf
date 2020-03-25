@@ -1,9 +1,9 @@
-output "null_resource_id" {
-  value       = "${null_resource.foo.id}"
-  description = "An arbitrary value that changes each time the resource is replaced."
+output "rds_postgres_pg_id" {
+  value = aws_db_parameter_group.rds_postgres_pg.id
+  description = "ID of the RDS postgres parameter group"
 }
 
-output "example_value" {
-  value       = "${var.example}"
-  description = "Example variable."
+output "rds_postgres_id" {
+  value = aws_db_instance.rds_postgres.id
+  description = "ID of the of the RDS instance"
 }
