@@ -1,7 +1,18 @@
 resource "aws_db_parameter_group" "rds_postgres_pg" {
     name        = var.parameter_group_name
     family      = "postgres9.6"
-    description = "RDS default parameter group"
+    description = "TAMR RDS parameter group"
+    tags = var.additional_tags
+}
+
+module "rds_sg" {
+    source = "./modules/rds-postgres-sg"
+    spark_cluster_sg_ids = var.spark_cluster_sg_ids
+    tamr_vm_sg_id = var.tamr_vm_sg_id
+    vpc_id = var.vpc_id
+    security_group_name = var.security_group_name
+    additional_cidrs = var.additional_cidrs
+    additional_tags = var.additional_tags
 }
 
 resource "aws_db_instance" "rds_postgres" {
@@ -23,7 +34,7 @@ resource "aws_db_instance" "rds_postgres" {
     db_subnet_group_name    = var.subnet_name
     multi_az                = true
     publicly_accessible     = false
-    vpc_security_group_ids  = var.vpc_security_group_ids
+    vpc_security_group_ids  = module.rds_sg.rds_sg_id
     parameter_group_name    = aws_db_parameter_group.rds_postgres_pg.name
 
     maintenance_window      = var.maintenance_window
@@ -34,10 +45,7 @@ resource "aws_db_instance" "rds_postgres" {
     apply_immediately       = var.apply_immediately
 
     copy_tags_to_snapshot   = var.copy_tags_to_snapshot
-    tags = merge(
-        {"Name": var.postgres_name},
-        var.additional_tags,
-    )
+    tags = var.additional_tags
 
     lifecycle {
       ignore_changes = [password]

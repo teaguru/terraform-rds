@@ -7,16 +7,18 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-    source = "git::https://github.com/Datatamer/terraform-rds-postgres?ref=0.1.0"
-    postgres_name = "tamr_rds_db"
-    parameter_group_name = "tamr-rds-postgres-pg"
-    identifier_prefix = "tamr-rds-"
+    source = "git::https://github.com/Datatamer/terraform-rds-postgres.git?ref=0.1.0"
+    postgres_name = "example_rds_postgres"
+    parameter_group_name = "example-rds-postgres-pg"
+    identifier_prefix = "example-rds-"
 
-    username = "tamr"
-    password = "8characterpassword"
+    username = "exampleUsername"
+    password = "examplePassword"
 
-    subnet_name = "rds_private"
-    vpc_security_group_ids = []
+    subnet_name = "example_subnet"
+    spark_cluster_sg_ids = ["sg-examplesecuritygroup1", "sg-examplesecuritygroup2"]
+    tamr_vm_sg_id = "sg-exampletamrsecuritygroup"
+    vpc_id = "vpc-examplevpcnetworkid"
 }
 ```
 
@@ -24,11 +26,14 @@ module "rds_postgres" {
 This terraform module will create:
 * an AWS RDS Postgres instance
 * database parameter group
+* A security group for the rds instance
 
 # Variables
 ## Inputs
-* `vpc_security_group_ids` (required): List of VPC security groups to associate
 * `password` (required): The postgres password
+* `tamr_vm_sg_id` (required): Security group id attached to the tamr vm
+* `spark_cluster_sg_id` (required): Security group is attached to the ec2 instances of EMR Spark
+* `vpc_id` (required): VPC ID for the rds security group
 * `username` (optional): The postgres username
 * `postgres_name` (optional): The name of the postgres instance
 * `parameter_group_name` (optional): The name of the rds parameter group
@@ -45,10 +50,13 @@ This terraform module will create:
 * `apply_immediately` (optional): Apply immediately, do not set this to true for production
 * `copy_tags_to_snapshot` (optional): Copy tags to snapshots
 * `additional_tags` (optional): Tags to set on the RDS instance
+* `security_group_name` (optional): Name for the security group for the rds instance
+* `additional_cidrs` (optional): Additional CIDR to connect to RDS Postgres instance
 
 ## Outputs
 * `rds_postgres_pg_id`: ID of the RDS postgres parameter group
 * `rds_postgres_id`: ID of the of the RDS instance
+* `rds_sg_id`: ID of the security group attached to the RDS instance
 
 # References
 * AWS RDS: https://aws.amazon.com/rds/features/
@@ -56,9 +64,8 @@ This terraform module will create:
 
 # Development
 ## Releasing new versions
-* Update version contained in `VERSION`
-* Document changes in `CHANGELOG.md`
-* Create a tag in github for the commit associated with the version
+* Updated version contained in `VERSION`
+* Documented changes in `CHANGELOG.md`
 
 # License
 Apache 2 Licensed. See LICENSE for full details.
