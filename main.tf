@@ -34,7 +34,7 @@ resource "aws_db_instance" "rds_postgres" {
     db_subnet_group_name    = var.subnet_name
     multi_az                = true
     publicly_accessible     = false
-    vpc_security_group_ids  = module.rds_sg.rds_sg_id
+    vpc_security_group_ids  = [module.rds_sg.rds_sg_id]
     parameter_group_name    = aws_db_parameter_group.rds_postgres_pg.name
 
     maintenance_window      = var.maintenance_window

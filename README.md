@@ -1,5 +1,5 @@
 # Tamr AWS RDS Terraform Module
-This terraform module creates an AWS RDS postgres instance.
+This terraform module creates an AWS RDS postgres instance that will be used by TAMR.
 This repo follows the [terraform standard module structure](https://www.terraform.io/docs/modules/index.html#standard-module-structure).
 
 # Examples

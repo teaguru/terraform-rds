@@ -10,7 +10,7 @@ variable "tamr_vm_sg_id" {
 }
 
 variable "spark_cluster_sg_ids" {
-  description = "Security group is attached to the ec2 instances of EMR Spark"
+  description = "List of Security groups attached to the ec2 instances of EMR Spark"
   type = list(string)
 }
 
