@@ -25,7 +25,7 @@ resource "aws_db_instance" "rds_postgres" {
   storage_encrypted     = true
 
   engine         = "postgres"
-  engine_version = "9.6"
+  engine_version = var.engine_version
   instance_class = var.instance_class
 
   username = var.username

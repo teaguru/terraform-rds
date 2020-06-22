@@ -125,3 +125,10 @@ variable "additional_cidrs" {
   type        = list(string)
   default     = []
 }
+
+variable "engine_version" {
+  description = "Version of RDS Postgres"
+  type        = string
+  default     = "12.3"
+
+}

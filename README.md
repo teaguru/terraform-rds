@@ -56,6 +56,7 @@ This terraform module will create:
 | backup\_retention\_period | Backup retention period in days | `number` | `14` | no |
 | backup\_window | Backup window | `string` | `"03:29-03:59"` | no |
 | copy\_tags\_to\_snapshot | Copy tags to snapshots | `bool` | `true` | no |
+| engine\_version | Version of RDS Postgres | `string` | `"12.3"` | no |
 | identifier\_prefix | Identifier prefix for the RDS instance | `string` | `"tamr-rds-"` | no |
 | instance\_class | Instance class | `string` | `"db.m4.large"` | no |
 | maintenance\_window | Maintenance window | `string` | `"sun:04:32-sun:05:02"` | no |
