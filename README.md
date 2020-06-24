@@ -61,6 +61,7 @@ This terraform module will create:
 | instance\_class | Instance class | `string` | `"db.m4.large"` | no |
 | maintenance\_window | Maintenance window | `string` | `"sun:04:32-sun:05:02"` | no |
 | max\_allocated\_storage | Max allocate storage | `number` | `1000` | no |
+| parameter\_group\_family | The family of the DB parameter group | `string` | `"postgres12"` | no |
 | parameter\_group\_name | The name of the rds parameter group | `string` | `"rds-postgres-pg"` | no |
 | postgres\_name | The name of the postgres instance | `string` | `"tamr_rds_db"` | no |
 | security\_group\_name | Name for the security group for the rds instance | `string` | `"tamr_rds_sg"` | no |

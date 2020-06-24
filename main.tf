@@ -1,6 +1,6 @@
 resource "aws_db_parameter_group" "rds_postgres_pg" {
   name        = var.parameter_group_name
-  family      = "postgres9.6"
+  family      = var.parameter_group_family
   description = "TAMR RDS parameter group"
   tags        = var.additional_tags
 }

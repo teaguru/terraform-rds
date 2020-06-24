@@ -130,5 +130,10 @@ variable "engine_version" {
   description = "Version of RDS Postgres"
   type        = string
   default     = "12.3"
+}
 
+variable "parameter_group_family" {
+  description = "The family of the DB parameter group"
+  type        = string
+  default     = "postgres12"
 }
