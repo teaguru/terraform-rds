@@ -11,7 +11,7 @@ module "rds_sg" {
     security_group_name = "examplerdssecuritygroup"
     additional_cidrs = ["1.2.3.4/32"]
 }
-``` 
+```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

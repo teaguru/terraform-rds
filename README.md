@@ -11,7 +11,6 @@ module "rds_postgres" {
     postgres_name = "example_rds_postgres"
     parameter_group_name = "example-rds-postgres-pg"
     identifier_prefix = "example-rds-"
-
     username = "exampleUsername"
     password = "examplePassword"
 

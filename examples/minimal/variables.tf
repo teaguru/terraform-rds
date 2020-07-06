@@ -22,5 +22,3 @@ variable "pg_password" {
   type        = string
   description = "Password for postgres"
 }
-
-
