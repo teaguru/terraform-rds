@@ -81,10 +81,14 @@ variable "apply_immediately" {
   default     = false
 }
 
-variable "subnet_name" {
+variable "subnet_group_name" {
   description = "The name of the subnet to add the RDS instance to"
   type        = string
-  default     = null
+}
+
+variable "rds_subnet_ids" {
+  description = "VPC subnet IDs in subnet group"
+  type        = list(string)
 }
 
 variable "copy_tags_to_snapshot" {
