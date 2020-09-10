@@ -82,7 +82,7 @@ variable "apply_immediately" {
 }
 
 variable "subnet_group_name" {
-  description = "The name of the subnet to add the RDS instance to"
+  description = "The name of the subnet group to add the RDS instance to"
   type        = string
 }
 
