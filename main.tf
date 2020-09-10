@@ -5,6 +5,11 @@ resource "aws_db_parameter_group" "rds_postgres_pg" {
   tags        = var.additional_tags
 }
 
+resource "aws_db_subnet_group" "rds_postgres_subnet_group" {
+  name       = var.subnet_group_name
+  subnet_ids = var.rds_subnet_ids
+}
+
 module "rds_sg" {
   source               = "./modules/rds-postgres-sg"
   spark_cluster_sg_ids = var.spark_cluster_sg_ids
@@ -31,7 +36,7 @@ resource "aws_db_instance" "rds_postgres" {
   username = var.username
   password = var.password
 
-  db_subnet_group_name   = var.subnet_name
+  db_subnet_group_name   = aws_db_subnet_group.rds_postgres_subnet_group.name
   multi_az               = true
   publicly_accessible    = false
   vpc_security_group_ids = [module.rds_sg.rds_sg_id]
