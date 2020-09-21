@@ -1,5 +1,5 @@
 module "rds_postgres" {
-  source               = "git::https://github.com/Datatamer/terraform-rds-postgres.git?ref=0.3.0"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.3.0"
   postgres_name        = "example_rds_postgres"
   parameter_group_name = "example-rds-postgres-pg"
   identifier_prefix    = "example-rds-"
