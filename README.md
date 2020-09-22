@@ -37,23 +37,24 @@ This terraform module will create:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
+| aws | >= 2.45.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | >= 2.45.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | password | The postgres password | `string` | n/a | yes |
+| rds\_subnet\_ids | VPC subnet IDs in subnet group | `list(string)` | n/a | yes |
 | spark\_cluster\_sg\_ids | Security group is attached to the ec2 instances of EMR Spark | `list(string)` | n/a | yes |
+| subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
 | tamr\_vm\_sg\_id | Security group id attached to the tamr vm | `string` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
-| subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
-| rds\_subnet\_ids | List of subnet IDs to add to subnet group | `list(string)` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
 | additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |
 | allocated\_storage | Allocate storage | `number` | `20` | no |
