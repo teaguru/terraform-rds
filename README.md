@@ -7,26 +7,29 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-    source = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.3.0"
-    postgres_name = "example_rds_postgres"
-    parameter_group_name = "example-rds-postgres-pg"
-    identifier_prefix = "example-rds-"
-    username = "exampleUsername"
-    password = "examplePassword"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.3.0"
+  postgres_name        = "example_rds_postgres"
+  parameter_group_name = "example-rds-postgres-pg"
+  identifier_prefix    = "example-rds-"
+  username             = "exampleUsername"
+  password             = "examplePassword"
 
-    subnet_group_name = "example_subnet"
-    rds_subnet_ids = ["example-subnet-1", "example-subnet-2"]
-    spark_cluster_sg_ids = ["sg-examplesecuritygroup1", "sg-examplesecuritygroup2"]
-    tamr_vm_sg_id = "sg-exampletamrsecuritygroup"
-    vpc_id = "vpc-examplevpcnetworkid"
+  subnet_group_name    = "example_subnet"
+  rds_subnet_ids       = ["example-subnet-1", "example-subnet-2"]
+  spark_cluster_sg_ids = ["sg-examplesecuritygroup1", "sg-examplesecuritygroup2"]
+  tamr_vm_sg_id        = "sg-exampletamrsecuritygroup"
+  vpc_id               = "vpc-examplevpcnetworkid"
 }
 ```
+## Minimal
+Smallest complete fully working example. This example might require extra resources to run the example.
+- [Minimal](https://github.com/Datatamer/terraform-aws-rds-postgres/tree/master/examples/minimal)
 
 # Resources Created
 This terraform module will create:
 * an AWS RDS Postgres instance
-* database parameter group
-* A security group for the rds instance
+* a database parameter group
+* a security group for the rds instance
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -90,6 +93,7 @@ This terraform module will create:
 ## Releasing new versions
 * Updated version contained in `VERSION`
 * Documented changes in `CHANGELOG.md`
+* Create a tag in github for the commit associated with the version
 
 # License
 Apache 2 Licensed. See LICENSE for full details.
