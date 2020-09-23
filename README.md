@@ -7,26 +7,29 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-    source = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.3.0"
-    postgres_name = "example_rds_postgres"
-    parameter_group_name = "example-rds-postgres-pg"
-    identifier_prefix = "example-rds-"
-    username = "exampleUsername"
-    password = "examplePassword"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.3.0"
+  postgres_name        = "example_rds_postgres"
+  parameter_group_name = "example-rds-postgres-pg"
+  identifier_prefix    = "example-rds-"
+  username             = "exampleUsername"
+  password             = "examplePassword"
 
-    subnet_group_name = "example_subnet"
-    rds_subnet_ids = ["example-subnet-1", "example-subnet-2"]
-    spark_cluster_sg_ids = ["sg-examplesecuritygroup1", "sg-examplesecuritygroup2"]
-    tamr_vm_sg_id = "sg-exampletamrsecuritygroup"
-    vpc_id = "vpc-examplevpcnetworkid"
+  subnet_group_name    = "example_subnet"
+  rds_subnet_ids       = ["example-subnet-1", "example-subnet-2"]
+  spark_cluster_sg_ids = ["sg-examplesecuritygroup1", "sg-examplesecuritygroup2"]
+  tamr_vm_sg_id        = "sg-exampletamrsecuritygroup"
+  vpc_id               = "vpc-examplevpcnetworkid"
 }
 ```
+## Minimal
+Smallest complete fully working example. This example might require extra resources to run the example.
+- [Minimal](https://github.com/Datatamer/terraform-aws-rds-postgres/tree/master/examples/minimal)
 
 # Resources Created
 This terraform module will create:
 * an AWS RDS Postgres instance
-* database parameter group
-* A security group for the rds instance
+* a database parameter group
+* a security group for the rds instance
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -34,23 +37,24 @@ This terraform module will create:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12 |
+| aws | >= 2.45.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | >= 2.45.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | password | The postgres password | `string` | n/a | yes |
+| rds\_subnet\_ids | VPC subnet IDs in subnet group | `list(string)` | n/a | yes |
 | spark\_cluster\_sg\_ids | Security group is attached to the ec2 instances of EMR Spark | `list(string)` | n/a | yes |
+| subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
 | tamr\_vm\_sg\_id | Security group id attached to the tamr vm | `string` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
-| subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
-| rds\_subnet\_ids | List of subnet IDs to add to subnet group | `list(string)` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
 | additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |
 | allocated\_storage | Allocate storage | `number` | `20` | no |
@@ -90,6 +94,7 @@ This terraform module will create:
 ## Releasing new versions
 * Updated version contained in `VERSION`
 * Documented changes in `CHANGELOG.md`
+* Create a tag in github for the commit associated with the version
 
 # License
 Apache 2 Licensed. See LICENSE for full details.

@@ -4,25 +4,33 @@ This terraform module creates the security group and the security group rules fo
 # Example
 ```
 module "rds_sg" {
-    source = "./modules/rds-postgres-sg"
-    spark_cluster_sg_ids = ["sg-examplesparksecuritygroup1", "sg-examplesparksecuritygroup2"]
-    tamr_vm_sg_id = "sg-exampletamrvmsecuritygroup"
-    vpc_id = "vpc-examplevpcid"
-    security_group_name = "examplerdssecuritygroup"
-    additional_cidrs = ["1.2.3.4/32"]
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git//modules/rds-postgres-sg?ref=0.3.0"
+  spark_cluster_sg_ids = ["sg-examplesparksecuritygroup1", "sg-examplesparksecuritygroup2"]
+  tamr_vm_sg_id        = "sg-exampletamrvmsecuritygroup"
+  vpc_id               = "vpc-examplevpcid"
+  security_group_name  = "examplerdssecuritygroup"
+  additional_cidrs     = ["1.2.3.4/32"]
 }
 ```
+
+# Resources Created
+This terraform module will create:
+* a security group for the RDS instance
+* security group rules if additional CIDRs are provided
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| aws | >= 2.45.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | >= 2.45.0 |
 
 ## Inputs
 
@@ -42,9 +50,3 @@ No requirements.
 | rds\_sg\_id | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
-# AWS Resources created
-This terraform module creates 1 Security Group:
-* A security group for the RDS instance
-
-This terraform module also creates Security Group Rules. The number of Security Group rules vary depending on the additional CIDRs provided.
