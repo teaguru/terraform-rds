@@ -29,6 +29,7 @@ Smallest complete fully working example. This example might require extra resour
 This terraform module will create:
 * an AWS RDS Postgres instance
 * a database parameter group
+* a database subnet group
 * a security group for the rds instance
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -49,11 +50,11 @@ This terraform module will create:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| password | The postgres password | `string` | n/a | yes |
+| password | The password for the master DB user. | `string` | n/a | yes |
 | rds\_subnet\_ids | VPC subnet IDs in subnet group | `list(string)` | n/a | yes |
-| spark\_cluster\_sg\_ids | Security group is attached to the ec2 instances of EMR Spark | `list(string)` | n/a | yes |
+| spark\_cluster\_sg\_ids | List of Spark service access security group IDs to allow ingress from | `list(string)` | n/a | yes |
 | subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
-| tamr\_vm\_sg\_id | Security group id attached to the tamr vm | `string` | n/a | yes |
+| tamr\_vm\_sg\_id | Tamr VM security group ID to allow ingress from | `string` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
 | additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |
@@ -69,11 +70,11 @@ This terraform module will create:
 | max\_allocated\_storage | Max allocate storage | `number` | `1000` | no |
 | parameter\_group\_family | The family of the DB parameter group | `string` | `"postgres12"` | no |
 | parameter\_group\_name | The name of the rds parameter group | `string` | `"rds-postgres-pg"` | no |
-| postgres\_name | The name of the postgres instance | `string` | `"tamr_rds_db"` | no |
+| postgres\_name | The name of the postgres database to create on the DB instance | `string` | `"tamr_rds_db"` | no |
 | security\_group\_name | Name for the security group for the rds instance | `string` | `"tamr_rds_sg"` | no |
 | skip\_final\_snapshot | Skip final snapshot | `bool` | `true` | no |
 | storage\_type | Storage type (e.g. gp2, io1) | `string` | `"gp2"` | no |
-| username | The postgres username | `string` | `"tamr"` | no |
+| username | The username for the master DB user. | `string` | `"tamr"` | no |
 
 ## Outputs
 

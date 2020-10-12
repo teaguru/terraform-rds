@@ -1,16 +1,16 @@
 variable "password" {
-  description = "The postgres password"
+  description = "The password for the master DB user."
   type        = string
 }
 
 variable "username" {
-  description = "The postgres username"
+  description = "The username for the master DB user."
   type        = string
   default     = "tamr"
 }
 
 variable "postgres_name" {
-  description = "The name of the postgres instance"
+  description = "The name of the postgres database to create on the DB instance"
   type        = string
   default     = "tamr_rds_db"
 }
@@ -23,7 +23,7 @@ variable "parameter_group_name" {
 
 variable "identifier_prefix" {
   description = "Identifier prefix for the RDS instance"
-  type        = "string"
+  type        = string
   default     = "tamr-rds-"
 }
 
@@ -110,12 +110,12 @@ variable "security_group_name" {
 }
 
 variable "tamr_vm_sg_id" {
-  description = "Security group id attached to the tamr vm"
+  description = "Tamr VM security group ID to allow ingress from"
   type        = string
 }
 
 variable "spark_cluster_sg_ids" {
-  description = "Security group is attached to the ec2 instances of EMR Spark"
+  description = "List of Spark service access security group IDs to allow ingress from"
   type        = list(string)
 }
 
