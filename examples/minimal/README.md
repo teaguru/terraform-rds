@@ -11,11 +11,10 @@ No provider.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| identifier\_prefix | Identifier prefix for the resources | `string` | n/a | yes |
-| parameter\_group\_name | Name of the parameter group | `string` | n/a | yes |
-| pg\_password | Password for postgres | `string` | n/a | yes |
-| pg\_username | Username for postgres | `string` | n/a | yes |
-| postgres\_db\_name | Name of the postgres db | `string` | n/a | yes |
+| spark\_service\_access\_sg\_ids | List of Spark service access security group IDs to allow ingress from | `list(string)` | n/a | yes |
+| subnet\_ids | List of at least 2 subnets in different AZs for DB subnet group | `list(string)` | n/a | yes |
+| tamr\_vm\_sg\_id | Security group ID of Tamr VM to allow ingress from | `string` | n/a | yes |
+| vpc\_id | VPC ID of network. | `string` | n/a | yes |
 
 ## Outputs
 
