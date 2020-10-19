@@ -1,5 +1,8 @@
 # Tamr Terraform Template Repo
 
+## v0.3.1 - Sep 10th 2020
+* Adds outputs, `rds_username` and `rds_dbname`
+
 ## v0.3.0 - Sep 10th 2020
 * Adds creation of aws_db_subnet_group resource
   * Adds variable rds_subnet_ids to specify subnet IDs in subnet group
