@@ -80,10 +80,12 @@ This terraform module will create:
 
 | Name | Description |
 |------|-------------|
+| rds\_dbname | n/a |
 | rds\_hostname | n/a |
 | rds\_postgres\_id | ID of the of the RDS instance |
 | rds\_postgres\_pg\_id | ID of the RDS postgres parameter group |
 | rds\_sg\_id | ID of the security group attached to the rds instance |
+| rds\_username | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

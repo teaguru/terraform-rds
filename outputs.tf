@@ -16,3 +16,11 @@ output "rds_sg_id" {
 output "rds_hostname" {
   value = aws_db_instance.rds_postgres.address
 }
+
+output "rds_username" {
+  value = aws_db_instance.rds_postgres.username
+}
+
+output "rds_dbname" {
+  value = aws_db_instance.rds_postgres.name
+}
