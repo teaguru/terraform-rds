@@ -4,13 +4,8 @@ variable "security_group_name" {
   default     = "tamr_rds_sg"
 }
 
-variable "tamr_vm_sg_id" {
-  description = "Security group id attached to the tamr vm"
-  type        = string
-}
-
-variable "spark_cluster_sg_ids" {
-  description = "List of Security groups attached to the ec2 instances of EMR Spark"
+variable "ingress_sg_ids" {
+  description = "List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID)"
   type        = list(string)
 }
 

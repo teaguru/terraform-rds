@@ -4,9 +4,8 @@ This terraform module creates the security group and the security group rules fo
 # Example
 ```
 module "rds_sg" {
-  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git//modules/rds-postgres-sg?ref=0.3.0"
-  spark_cluster_sg_ids = ["sg-examplesparksecuritygroup1", "sg-examplesparksecuritygroup2"]
-  tamr_vm_sg_id        = "sg-exampletamrvmsecuritygroup"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git//modules/rds-postgres-sg?ref=0.4.0"
+  ingress_sg_ids       = ["sg-examplesparksecuritygroup1", "sg-examplesparksecuritygroup2", "sg-exampletamrvmsecuritygroup"]
   vpc_id               = "vpc-examplevpcid"
   security_group_name  = "examplerdssecuritygroup"
   additional_cidrs     = ["1.2.3.4/32"]
@@ -36,8 +35,7 @@ This terraform module will create:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| spark\_cluster\_sg\_ids | List of Security groups attached to the ec2 instances of EMR Spark | `list(string)` | n/a | yes |
-| tamr\_vm\_sg\_id | Security group id attached to the tamr vm | `string` | n/a | yes |
+| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
 | additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |

@@ -1,5 +1,8 @@
 # Tamr Terraform Template Repo
 
+## v0.4.0 - Oct 27th 2020
+* Consolidates inputs `tamr_vm_sg_id` and `spark_cluster_sg_ids` into one input, `ingress_sg_ids`
+
 ## v0.3.1 - Sep 10th 2020
 * Adds outputs, `rds_username` and `rds_dbname`
 

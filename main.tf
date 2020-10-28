@@ -11,13 +11,12 @@ resource "aws_db_subnet_group" "rds_postgres_subnet_group" {
 }
 
 module "rds_sg" {
-  source               = "./modules/rds-postgres-sg"
-  spark_cluster_sg_ids = var.spark_cluster_sg_ids
-  tamr_vm_sg_id        = var.tamr_vm_sg_id
-  vpc_id               = var.vpc_id
-  security_group_name  = var.security_group_name
-  additional_cidrs     = var.additional_cidrs
-  additional_tags      = var.additional_tags
+  source              = "./modules/rds-postgres-sg"
+  ingress_sg_ids      = var.ingress_sg_ids
+  vpc_id              = var.vpc_id
+  security_group_name = var.security_group_name
+  additional_cidrs    = var.additional_cidrs
+  additional_tags     = var.additional_tags
 }
 
 resource "aws_db_instance" "rds_postgres" {
