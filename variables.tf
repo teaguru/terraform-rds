@@ -109,13 +109,8 @@ variable "security_group_name" {
   default     = "tamr_rds_sg"
 }
 
-variable "tamr_vm_sg_id" {
-  description = "Tamr VM security group ID to allow ingress from"
-  type        = string
-}
-
-variable "spark_cluster_sg_ids" {
-  description = "List of Spark service access security group IDs to allow ingress from"
+variable "ingress_sg_ids" {
+  description = "List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID)"
   type        = list(string)
 }
 

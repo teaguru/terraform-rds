@@ -7,7 +7,7 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.3.0"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.4.0"
   postgres_name        = "example_rds_postgres"
   parameter_group_name = "example-rds-postgres-pg"
   identifier_prefix    = "example-rds-"
@@ -16,8 +16,7 @@ module "rds_postgres" {
 
   subnet_group_name    = "example_subnet"
   rds_subnet_ids       = ["example-subnet-1", "example-subnet-2"]
-  spark_cluster_sg_ids = ["sg-examplesecuritygroup1", "sg-examplesecuritygroup2"]
-  tamr_vm_sg_id        = "sg-exampletamrsecuritygroup"
+  ingress_sg_ids       = ["sg-sparksecuritygroup1", "sg-sparksecuritygroup2", "sg-tamrvmsecuritygroup"]
   vpc_id               = "vpc-examplevpcnetworkid"
 }
 ```
@@ -50,11 +49,10 @@ This terraform module will create:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | password | The password for the master DB user. | `string` | n/a | yes |
 | rds\_subnet\_ids | VPC subnet IDs in subnet group | `list(string)` | n/a | yes |
-| spark\_cluster\_sg\_ids | List of Spark service access security group IDs to allow ingress from | `list(string)` | n/a | yes |
 | subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
-| tamr\_vm\_sg\_id | Tamr VM security group ID to allow ingress from | `string` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
 | additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |
