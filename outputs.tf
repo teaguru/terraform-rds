@@ -17,6 +17,10 @@ output "rds_hostname" {
   value = aws_db_instance.rds_postgres.address
 }
 
+output "rds_db_port" {
+  value = aws_db_instance.rds_postgres.port
+}
+
 output "rds_username" {
   value = aws_db_instance.rds_postgres.username
 }

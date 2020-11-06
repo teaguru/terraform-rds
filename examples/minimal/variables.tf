@@ -8,12 +8,7 @@ variable "subnet_ids" {
   description = "List of at least 2 subnets in different AZs for DB subnet group"
 }
 
-variable "spark_service_access_sg_ids" {
+variable "ingress_sg_ids" {
+  description = "List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID)"
   type        = list(string)
-  description = "List of Spark service access security group IDs to allow ingress from"
-}
-
-variable "tamr_vm_sg_id" {
-  type        = string
-  description = "Security group ID of Tamr VM to allow ingress from"
 }
