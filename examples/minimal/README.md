@@ -11,9 +11,8 @@ No provider.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| spark\_service\_access\_sg\_ids | List of Spark service access security group IDs to allow ingress from | `list(string)` | n/a | yes |
+| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | subnet\_ids | List of at least 2 subnets in different AZs for DB subnet group | `list(string)` | n/a | yes |
-| tamr\_vm\_sg\_id | Security group ID of Tamr VM to allow ingress from | `string` | n/a | yes |
 | vpc\_id | VPC ID of network. | `string` | n/a | yes |
 
 ## Outputs
