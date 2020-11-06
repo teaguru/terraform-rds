@@ -1,5 +1,9 @@
 # Tamr Terraform Template Repo
 
+## v0.4.1 - Nov 6th 2020
+* Adds input `db_port` to configure port that postgres database accepts connections on
+* Fixes example so it accepts `ingress_sg_ids` as input
+
 ## v0.4.0 - Oct 27th 2020
 * Consolidates inputs `tamr_vm_sg_id` and `spark_cluster_sg_ids` into one input, `ingress_sg_ids`
 

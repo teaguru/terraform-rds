@@ -34,6 +34,7 @@ resource "aws_db_instance" "rds_postgres" {
 
   username = var.username
   password = var.password
+  port     = var.db_port
 
   db_subnet_group_name   = aws_db_subnet_group.rds_postgres_subnet_group.name
   multi_az               = true

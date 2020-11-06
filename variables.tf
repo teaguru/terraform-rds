@@ -9,6 +9,12 @@ variable "username" {
   default     = "tamr"
 }
 
+variable "db_port" {
+  description = "The port on which the database accepts connections."
+  type        = number
+  default     = 5432
+}
+
 variable "postgres_name" {
   description = "The name of the postgres database to create on the DB instance"
   type        = string
