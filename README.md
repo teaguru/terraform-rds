@@ -36,14 +36,14 @@ This terraform module will create:
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
-| aws | >= 2.45.0 |
+| terraform | >= 0.13 |
+| aws | >= 3.36.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | >= 2.45.0 |
+| aws | >= 3.36.0 |
 
 ## Inputs
 
