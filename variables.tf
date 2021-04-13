@@ -105,7 +105,7 @@ variable "copy_tags_to_snapshot" {
 
 variable "additional_tags" {
   description = "Additional tags to set on the RDS instance"
-  type        = map
+  type        = map(string)
   default     = {}
 }
 

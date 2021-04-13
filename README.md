@@ -55,7 +55,7 @@ This terraform module will create:
 | subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
-| additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |
+| additional\_tags | Additional tags to set on the RDS instance | `map(string)` | `{}` | no |
 | allocated\_storage | Allocate storage | `number` | `20` | no |
 | apply\_immediately | Apply immediately, do not set this to true for production | `bool` | `false` | no |
 | backup\_retention\_period | Backup retention period in days | `number` | `14` | no |

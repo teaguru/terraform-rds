@@ -38,7 +38,7 @@ This terraform module will create:
 | ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
-| additional\_tags | Additional tags to set on the RDS instance | `map` | `{}` | no |
+| additional\_tags | Additional tags to set on the RDS instance | `map(string)` | `{}` | no |
 | security\_group\_name | Name for the security group for the rds instance | `string` | `"tamr_rds_sg"` | no |
 
 ## Outputs
