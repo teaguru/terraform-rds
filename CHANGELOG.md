@@ -1,5 +1,10 @@
 # Tamr Terraform Template Repo
 
+## v1.0.0 - April 12th 2021
+* Updates minimum Terraform version to 13
+* Updates minimum AWS provider version to 3.36.0
+* Adds explicit type to `additional_tags` variable
+
 ## v0.4.1 - Nov 6th 2020
 * Adds input `db_port` to configure port that postgres database accepts connections on
 * Fixes example so it accepts `ingress_sg_ids` as input
