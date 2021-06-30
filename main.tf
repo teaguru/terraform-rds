@@ -10,15 +10,6 @@ resource "aws_db_subnet_group" "rds_postgres_subnet_group" {
   subnet_ids = var.rds_subnet_ids
 }
 
-module "rds_sg" {
-  source              = "./modules/rds-postgres-sg"
-  ingress_sg_ids      = var.ingress_sg_ids
-  vpc_id              = var.vpc_id
-  security_group_name = var.security_group_name
-  additional_cidrs    = var.additional_cidrs
-  additional_tags     = var.additional_tags
-}
-
 resource "aws_db_instance" "rds_postgres" {
   name = var.postgres_name
 
@@ -39,7 +30,7 @@ resource "aws_db_instance" "rds_postgres" {
   db_subnet_group_name   = aws_db_subnet_group.rds_postgres_subnet_group.name
   multi_az               = true
   publicly_accessible    = false
-  vpc_security_group_ids = [module.rds_sg.rds_sg_id]
+  vpc_security_group_ids = var.ingress_sg_ids
   parameter_group_name   = aws_db_parameter_group.rds_postgres_pg.name
 
   maintenance_window      = var.maintenance_window

@@ -7,7 +7,7 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=0.4.0"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=2.0.0"
   postgres_name        = "example_rds_postgres"
   parameter_group_name = "example-rds-postgres-pg"
   identifier_prefix    = "example-rds-"
@@ -29,7 +29,6 @@ This terraform module will create:
 * an AWS RDS Postgres instance
 * a database parameter group
 * a database subnet group
-* a security group for the rds instance
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -49,7 +48,6 @@ This terraform module will create:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | password | The password for the master DB user. | `string` | n/a | yes |
 | rds\_subnet\_ids | VPC subnet IDs in subnet group | `list(string)` | n/a | yes |
 | subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
@@ -64,6 +62,7 @@ This terraform module will create:
 | db\_port | The port on which the database accepts connections. | `number` | `5432` | no |
 | engine\_version | Version of RDS Postgres | `string` | `"12.3"` | no |
 | identifier\_prefix | Identifier prefix for the RDS instance | `string` | `"tamr-rds-"` | no |
+| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | `[]` | no |
 | instance\_class | Instance class | `string` | `"db.m4.large"` | no |
 | maintenance\_window | Maintenance window | `string` | `"sun:04:32-sun:05:02"` | no |
 | max\_allocated\_storage | Max allocate storage | `number` | `1000` | no |
@@ -84,7 +83,7 @@ This terraform module will create:
 | rds\_hostname | n/a |
 | rds\_postgres\_id | ID of the of the RDS instance |
 | rds\_postgres\_pg\_id | ID of the RDS postgres parameter group |
-| rds\_sg\_id | ID of the security group attached to the rds instance |
+| rds\_security\_group\_ids | List of security group ids attached to the rds instance |
 | rds\_username | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

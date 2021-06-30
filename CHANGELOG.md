@@ -1,5 +1,10 @@
 # Tamr Terraform Template Repo
 
+## v2.0.0 - June 30th 2021
+* Accepts a list of security groups
+* Returns a list of ports used by RDS
+* Removes ability for the creation of security groups
+
 ## v1.0.0 - April 12th 2021
 * Updates minimum Terraform version to 13
 * Updates minimum AWS provider version to 3.36.0

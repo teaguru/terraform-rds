@@ -8,9 +8,9 @@ output "rds_postgres_id" {
   description = "ID of the of the RDS instance"
 }
 
-output "rds_sg_id" {
-  value       = module.rds_sg.rds_sg_id
-  description = "ID of the security group attached to the rds instance"
+output "rds_security_group_ids" {
+  value       = var.ingress_sg_ids
+  description = "List of security group ids attached to the rds instance"
 }
 
 output "rds_hostname" {
