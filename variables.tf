@@ -116,7 +116,7 @@ variable "security_group_name" {
 }
 
 variable "security_group_ids" {
-  description = "List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID)"
+  description = "List of security group IDs to associate"
   type        = list(string)
 }
 
