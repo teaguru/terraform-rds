@@ -9,7 +9,7 @@ output "rds_postgres_id" {
 }
 
 output "rds_security_group_ids" {
-  value       = var.ingress_sg_ids
+  value       = var.security_group_ids
   description = "List of security group ids attached to the rds instance"
 }
 

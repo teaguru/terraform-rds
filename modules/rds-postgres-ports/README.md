@@ -6,7 +6,7 @@ This module returns a list of ports used by the RDS Postgres Service.
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-  source = "git::https://github.com/Datatamer/terraform-aws-rds-postgres//modules/es-ports?ref=2.0.0"
+  source = "git::https://github.com/Datatamer/terraform-aws-rds-postgres//modules/rds-postgres-ports?ref=2.0.0"
 }
 ```
 

@@ -12,25 +12,21 @@ module "rds_postgres" {
   subnet_group_name = "example_subnet_group"
   # Network requirement: DB subnet group needs a subnet in at least two Availability Zones
   rds_subnet_ids = var.subnet_ids
-  ingress_sg_ids = var.ingress_sg_ids
+  security_group_ids = module.rds-postgres-sg.security_group_ids
 }
 
 module "sg-ports" {
-  # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=2.0.0"
+  # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git//modules/rds-postgres-ports?ref=2.0.0"
   source = "../../modules/rds-postgres-ports"
 }
 
 module "rds-postgres-sg" {
   source = "git::git@github.com:Datatamer/terraform-aws-security-groups.git?ref=1.0.0"
   vpc_id = var.vpc_id
-  ingress_cidr_blocks = [
-    "1.2.3.0/24"
-  ]
-  egress_cidr_blocks = [
-    "0.0.0.0/0"
-  ]
+  ingress_cidr_blocks = var.ingress_cidr_blocks
+  egress_cidr_blocks = var.egress_cidr_blocks
   ingress_ports  = module.sg-ports.ingress_ports
-  sg_name_prefix = var.name-prefix
+  sg_name_prefix = var.name_prefix
   egress_protocol = "all"
   ingress_protocol = "tcp"
 }

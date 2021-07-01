@@ -50,6 +50,7 @@ This terraform module will create:
 |------|-------------|------|---------|:--------:|
 | password | The password for the master DB user. | `string` | n/a | yes |
 | rds\_subnet\_ids | VPC subnet IDs in subnet group | `list(string)` | n/a | yes |
+| security\_group\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | subnet\_group\_name | The name of the subnet group to add the RDS instance to | `string` | n/a | yes |
 | vpc\_id | VPC ID for the rds security group | `string` | n/a | yes |
 | additional\_cidrs | Additional CIDR to connect to RDS Postgres instance | `list(string)` | `[]` | no |
@@ -62,7 +63,6 @@ This terraform module will create:
 | db\_port | The port on which the database accepts connections. | `number` | `5432` | no |
 | engine\_version | Version of RDS Postgres | `string` | `"12.3"` | no |
 | identifier\_prefix | Identifier prefix for the RDS instance | `string` | `"tamr-rds-"` | no |
-| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | `[]` | no |
 | instance\_class | Instance class | `string` | `"db.m4.large"` | no |
 | maintenance\_window | Maintenance window | `string` | `"sun:04:32-sun:05:02"` | no |
 | max\_allocated\_storage | Max allocate storage | `number` | `1000` | no |

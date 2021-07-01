@@ -11,17 +11,18 @@ No provider.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ingress\_sg\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
-| name-prefix | A string to prepend to names of resources created by this example | `any` | n/a | yes |
+| ingress\_cidr\_blocks | CIDR blocks to attach to security groups for ingress | `list(string)` | n/a | yes |
+| name\_prefix | A string to prepend to names of resources created by this example | `any` | n/a | yes |
+| security\_group\_ids | List of security group IDs to allow ingress from (i.e. Spark cluster SG IDs, Tamr VM SG ID) | `list(string)` | n/a | yes |
 | subnet\_ids | List of at least 2 subnets in different AZs for DB subnet group | `list(string)` | n/a | yes |
 | vpc\_id | VPC ID of network. | `string` | n/a | yes |
-| additional\_ports | Additional ports to add to the output of this module | `list(number)` | `[]` | no |
-| ports | Ports used by the Elasticsearch | `list(number)` | <pre>[<br>  5432<br>]</pre> | no |
+| egress\_cidr\_blocks | CIDR blocks to attach to security groups for egress | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | ingress\_ports | List of ingress ports |
+| rds | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
