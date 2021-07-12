@@ -27,3 +27,13 @@ variable "egress_cidr_blocks" {
   type = list(string)
   default = ["0.0.0.0/0"]
 }
+
+variable "additional_tags" {
+  type        = map(string)
+  description = "Additional tags for resources created by this example"
+  default     = { 
+    Author = "Tamr"
+    Environment = "Example"
+  }
+}
+
