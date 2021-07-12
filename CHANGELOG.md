@@ -1,7 +1,9 @@
 # Tamr Terraform Template Repo
 
-## v2.1.0 - July 9th 2021
+## v2.1.0 - July 12nd 2021
 * Adds tags for RDS Subnet Group.
+* Adds new variable `tags` to set tags for all resources
+* Deprecates `additional_tags` in favor of `tags`
 
 ## v2.0.0 - June 30th 2021
 * Accepts a list of security groups

@@ -8,12 +8,12 @@ module "rds_postgres" {
   username             = "exampleUsername"
   password             = "examplePassword" #tfsec:ignore:GEN003
 
-  vpc_id            = var.vpc_id
-  subnet_group_name = "example_subnet_group"
+  vpc_id             = var.vpc_id
+  subnet_group_name  = "example_subnet_group"
   # Network requirement: DB subnet group needs a subnet in at least two Availability Zones
   rds_subnet_ids = var.subnet_ids
   security_group_ids = module.rds-postgres-sg.security_group_ids
-  additional_tags = var.additional_tags
+  tags               = var.tags
 }
 
 module "sg-ports" {
@@ -30,5 +30,5 @@ module "rds-postgres-sg" {
   sg_name_prefix = var.name_prefix
   egress_protocol = "all"
   ingress_protocol = "tcp"
-  additional_tags = var.additional_tags
+  tags = var.tags
 }
