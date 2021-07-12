@@ -1,6 +1,6 @@
 # Tamr Terraform Template Repo
 
-## v1.1.0 - July 9th 2021
+## v2.1.0 - July 9th 2021
 * Adds tags for RDS Subnet Group.
 
 ## v2.0.0 - June 30th 2021
