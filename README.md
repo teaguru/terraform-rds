@@ -7,7 +7,7 @@ This repo follows the [terraform standard module structure](https://www.terrafor
 Inline example implementation of the module.  This is the most basic example of what it would look like to use this module.
 ```
 module "rds_postgres" {
-  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=2.0.0"
+  source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=x.y.z"
   postgres_name        = "example_rds_postgres"
   parameter_group_name = "example-rds-postgres-pg"
   identifier_prefix    = "example-rds-"

@@ -1,5 +1,5 @@
 module "rds_postgres" {
-  # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=2.0.0"
+  # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=3.0.0"
   source = "../.."
 
   identifier_prefix    = "example-rds-pg-"
@@ -17,7 +17,7 @@ module "rds_postgres" {
 }
 
 module "sg-ports" {
-  # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git//modules/rds-postgres-ports?ref=2.0.0"
+  # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git//modules/rds-postgres-ports?ref=3.0.0"
   source = "../../modules/rds-postgres-ports"
 }
 
