@@ -148,3 +148,9 @@ variable "parameter_group_family" {
   type        = string
   default     = "postgres12"
 }
+
+variable "auto_minor_version_upgrade" {
+  default     = true
+  type        = bool
+  description = "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window"
+}
