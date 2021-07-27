@@ -140,7 +140,7 @@ variable "additional_cidrs" {
 variable "engine_version" {
   description = "Version of RDS Postgres"
   type        = string
-  default     = "12.3"
+  default     = "12"
 }
 
 variable "parameter_group_family" {
