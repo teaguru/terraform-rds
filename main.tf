@@ -18,7 +18,7 @@ resource "aws_db_subnet_group" "rds_postgres_subnet_group" {
 resource "aws_db_instance" "rds_postgres" {
   name = var.postgres_name
 
-  identifier_prefix     = var.identifier_prefix
+  #@Sidentifier_prefix     = var.identifier_prefixter
   allocated_storage     = var.allocated_storage
   max_allocated_storage = var.max_allocated_storage
   storage_type          = var.storage_type

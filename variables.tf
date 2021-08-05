@@ -30,7 +30,7 @@ variable "parameter_group_name" {
 variable "identifier_prefix" {
   description = "Identifier prefix for the RDS instance"
   type        = string
-  default     = "tamr-rds-"
+  default     = "rds"
 }
 
 variable "allocated_storage" {
@@ -90,11 +90,13 @@ variable "apply_immediately" {
 variable "subnet_group_name" {
   description = "The name of the subnet group to add the RDS instance to"
   type        = string
+  default = "test-rd"
 }
 
 variable "rds_subnet_ids" {
   description = "VPC subnet IDs in subnet group"
   type        = list(string)
+  default = ["subnet-0165666b7a6ee84b4", "subnet-05af83278b99a3a39"]
 }
 
 variable "copy_tags_to_snapshot" {
@@ -124,6 +126,7 @@ variable "security_group_name" {
 variable "security_group_ids" {
   description = "List of security group IDs to associate"
   type        = list(string)
+  default = ["sg-0b218e8ac624a08be", "sg-0998f496c5271ee58"]
 }
 
 variable "vpc_id" {

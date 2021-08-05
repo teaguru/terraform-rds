@@ -2,7 +2,7 @@ module "rds_postgres" {
   # source               = "git::https://github.com/Datatamer/terraform-aws-rds-postgres.git?ref=3.0.0"
   source = "../.."
 
-  identifier_prefix    = "example-rds-pg-"
+  #Sidentifier_prefix    = "example-rds-pg-"
   postgres_name        = "example0"
   parameter_group_name = "example-rds-postgres-pg"
   username             = "exampleUsername"
@@ -22,7 +22,7 @@ module "sg-ports" {
 }
 
 module "rds-postgres-sg" {
-  source              = "git::git@github.com:Datatamer/terraform-aws-security-groups.git?ref=1.0.0"
+  #Ssource              = "git::git@github.com:Datatamer/terraform-aws-security-groups.git?ref=1.0.0"
   vpc_id              = var.vpc_id
   ingress_cidr_blocks = var.ingress_cidr_blocks
   egress_cidr_blocks  = var.egress_cidr_blocks
